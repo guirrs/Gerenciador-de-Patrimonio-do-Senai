@@ -1,5 +1,8 @@
 using DotNetEnv;
+using GestaoPatrimonio.Aplication.Services;
 using GestaoPatrimonio.Contexts;
+using GestaoPatrimonio.Interface;
+using GestaoPatrimonio.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 Env.Load();
 
 // pegabdo a connectionString
-string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING")!;
 
 // Conexao com o banco
 builder.Services.AddDbContext<GestaoPatrimoniosContext>(options => options.UseSqlServer(connectionString));
@@ -19,6 +22,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Areas
+builder.Services.AddScoped<IAreaRepository, AreaRepository>();
+builder.Services.AddScoped<AreaService>();
 
 var app = builder.Build();
 
