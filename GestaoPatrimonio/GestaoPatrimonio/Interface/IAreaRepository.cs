@@ -9,6 +9,6 @@ namespace GestaoPatrimonio.Interface
         public Area BuscarPorId(Guid id);
         public Area BuscarPorNome(string nomeArea);
         void Adicionar(Area area);
-        void Atualizar(CriarAreaDto dto);
+        void Atualizar(Area dto);
     }
 }

@@ -22,7 +22,7 @@ namespace GestaoPatrimonio.Repositories
             return _context.Area.Find(id);
         }
 
-        public Area BuscarPorArea(string nome)
+        public Area BuscarPorNome(string nome)
         {
             return _context.Area.FirstOrDefault(n => n.NomeArea.ToLower() == nome.ToLower());
         }

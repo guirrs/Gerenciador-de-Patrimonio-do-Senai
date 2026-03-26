@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\controllers\\localizacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\controllers\\localizacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\aplication\\services\\localizacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\aplication\\services\\localizacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\interface\\ilocalizacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\interface\\ilocalizacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\repositories\\localizacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\repositories\\localizacaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\controllers\\areacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\controllers\\areacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,8 +39,24 @@
       "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\repositories\\arearepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\dtos\\localizacao\\listarlocalizacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\dtos\\localizacao\\listarlocalizacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\dtos\\localizacao\\criarlocalizacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\dtos\\localizacao\\criarlocalizacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\aplication\\regras\\validar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\aplication\\regras\\validar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\dtos\\areadto\\listarareadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\dtos\\areadto\\listarareadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\dtos\\areadto\\criarareadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\dtos\\areadto\\criarareadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\exceptions\\domainexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,20 +67,8 @@
       "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\.env.example||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\.env.example||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\dtos\\areadto\\criarareadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\dtos\\areadto\\criarareadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\dtos\\areadto\\listarareadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|solutionrelative:gestaopatrimonio\\dtos\\areadto\\listarareadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F5CC0EF-2F8E-DF08-89A2-5DC9C4C8B538}|GestaoPatrimonio\\GestaoPatrimonio.csproj|c:\\users\\46336142825\\desktop\\patrimoniosenai\\gestaopatrimonio\\gestaopatrimonio\\contexts\\gestaopatrimonioscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +94,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "LocalizacaoController.cs",
+              "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Controllers\\LocalizacaoController.cs",
+              "RelativeDocumentMoniker": "GestaoPatrimonio\\Controllers\\LocalizacaoController.cs",
+              "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Controllers\\LocalizacaoController.cs",
+              "RelativeToolTip": "GestaoPatrimonio\\Controllers\\LocalizacaoController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAgwDYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T11:59:54.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LocalizacaoService.cs",
+              "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Aplication\\Services\\LocalizacaoService.cs",
+              "RelativeDocumentMoniker": "GestaoPatrimonio\\Aplication\\Services\\LocalizacaoService.cs",
+              "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Aplication\\Services\\LocalizacaoService.cs",
+              "RelativeToolTip": "GestaoPatrimonio\\Aplication\\Services\\LocalizacaoService.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAtwGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T11:44:31.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LocalizacaoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Repositories\\LocalizacaoRepository.cs",
+              "RelativeDocumentMoniker": "GestaoPatrimonio\\Repositories\\LocalizacaoRepository.cs",
+              "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Repositories\\LocalizacaoRepository.cs",
+              "RelativeToolTip": "GestaoPatrimonio\\Repositories\\LocalizacaoRepository.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAgwD0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T11:42:09.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ILocalizacaoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Interface\\ILocalizacaoRepository.cs",
+              "RelativeDocumentMoniker": "GestaoPatrimonio\\Interface\\ILocalizacaoRepository.cs",
+              "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Interface\\ILocalizacaoRepository.cs",
+              "RelativeToolTip": "GestaoPatrimonio\\Interface\\ILocalizacaoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T11:34:46.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ListarLocalizacaoDto.cs",
+              "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\DTOs\\Localizacao\\ListarLocalizacaoDto.cs",
+              "RelativeDocumentMoniker": "GestaoPatrimonio\\DTOs\\Localizacao\\ListarLocalizacaoDto.cs",
+              "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\DTOs\\Localizacao\\ListarLocalizacaoDto.cs",
+              "RelativeToolTip": "GestaoPatrimonio\\DTOs\\Localizacao\\ListarLocalizacaoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T11:31:48.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CriarLocalizacaoDto.cs",
+              "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\DTOs\\Localizacao\\CriarLocalizacaoDto.cs",
+              "RelativeDocumentMoniker": "GestaoPatrimonio\\DTOs\\Localizacao\\CriarLocalizacaoDto.cs",
+              "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\DTOs\\Localizacao\\CriarLocalizacaoDto.cs",
+              "RelativeToolTip": "GestaoPatrimonio\\DTOs\\Localizacao\\CriarLocalizacaoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T11:28:22.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Validar.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Aplication\\Regras\\Validar.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\Aplication\\Regras\\Validar.cs",
@@ -78,11 +180,12 @@
               "RelativeToolTip": "GestaoPatrimonio\\Aplication\\Regras\\Validar.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T13:18:24.86Z"
+              "WhenOpened": "2026-03-25T13:18:24.86Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "AreaController.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Controllers\\AreaController.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\Controllers\\AreaController.cs",
@@ -95,19 +198,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "AreaService.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Aplication\\Services\\AreaService.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\Aplication\\Services\\AreaService.cs",
               "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Aplication\\Services\\AreaService.cs",
               "RelativeToolTip": "GestaoPatrimonio\\Aplication\\Services\\AreaService.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAUwD8AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAUwDUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T11:30:22.762Z"
+              "WhenOpened": "2026-03-25T11:30:22.762Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": ".env.example",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\.env.example",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\.env.example",
@@ -119,31 +223,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "AreaRepository.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Repositories\\AreaRepository.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\Repositories\\AreaRepository.cs",
               "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Repositories\\AreaRepository.cs",
               "RelativeToolTip": "GestaoPatrimonio\\Repositories\\AreaRepository.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAADwvzMAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T13:46:48.403Z"
+              "WhenOpened": "2026-03-24T13:46:48.403Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "IAreaRepository.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Interface\\IAreaRepository.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\Interface\\IAreaRepository.cs",
               "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Interface\\IAreaRepository.cs",
               "RelativeToolTip": "GestaoPatrimonio\\Interface\\IAreaRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T13:45:32.195Z"
+              "WhenOpened": "2026-03-24T13:45:32.195Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "ListarAreaDto.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\DTOs\\AreaDto\\ListarAreaDto.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\DTOs\\AreaDto\\ListarAreaDto.cs",
@@ -151,11 +257,12 @@
               "RelativeToolTip": "GestaoPatrimonio\\DTOs\\AreaDto\\ListarAreaDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T13:43:36.226Z"
+              "WhenOpened": "2026-03-24T13:43:36.226Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "CriarAreaDto.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\DTOs\\AreaDto\\CriarAreaDto.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\DTOs\\AreaDto\\CriarAreaDto.cs",
@@ -163,11 +270,12 @@
               "RelativeToolTip": "GestaoPatrimonio\\DTOs\\AreaDto\\CriarAreaDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T13:27:14.711Z"
+              "WhenOpened": "2026-03-24T13:27:14.711Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "DomainException.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Exceptions\\DomainException.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\Exceptions\\DomainException.cs",
@@ -179,19 +287,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Program.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\Program.cs",
               "ToolTip": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Program.cs",
               "RelativeToolTip": "GestaoPatrimonio\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAADwvzAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T13:04:48.036Z"
+              "WhenOpened": "2026-03-24T13:04:48.036Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": ".env",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\.env",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\.env",
@@ -203,7 +312,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "GestaoPatrimoniosContext.cs",
               "DocumentMoniker": "C:\\Users\\46336142825\\Desktop\\PatrimonioSenai\\GestaoPatrimonio\\GestaoPatrimonio\\Contexts\\GestaoPatrimoniosContext.cs",
               "RelativeDocumentMoniker": "GestaoPatrimonio\\Contexts\\GestaoPatrimoniosContext.cs",
