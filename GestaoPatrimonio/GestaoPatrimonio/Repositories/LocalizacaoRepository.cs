@@ -24,9 +24,9 @@ namespace GestaoPatrimonio.Repositories
             return _context.Localizacao.Find(id);
         }
 
-        public bool NomeExiste(string nome)
+        public bool NomeExiste(string nome, Guid areaId)
         {
-            return _context.Localizacao.Any(l => l.NomeLocal == nome);
+            return _context.Localizacao.Any(l => l.NomeLocal.ToLower() == nome.ToLower() && l.AreaID == areaId);
         }
 
         public bool AreaExiste(Guid areaId)

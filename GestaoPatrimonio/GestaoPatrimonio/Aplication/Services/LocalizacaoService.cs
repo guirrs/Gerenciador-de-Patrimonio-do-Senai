@@ -79,6 +79,13 @@ namespace GestaoPatrimonio.Aplication.Services
 
             Localizacao localizacaoBanco = _repository.ObterPorID(id);
 
+            bool Cadastrado = _repository.NomeExiste(dto.NomeLocal);
+
+            if (Cadastrado)
+            {
+                throw new DomainException("Local ja cadastrado");
+            }
+
             if (localizacaoBanco == null)
             {
                 throw new DomainException("Localização não encontrada.");
