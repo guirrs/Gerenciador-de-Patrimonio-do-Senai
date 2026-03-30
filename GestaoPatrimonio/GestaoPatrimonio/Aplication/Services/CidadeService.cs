@@ -1,4 +1,6 @@
-﻿using GestaoPatrimonio.DTOs.CidadeDto;
+﻿using GestaoPatrimonio.Domains;
+using GestaoPatrimonio.DTOs.CidadeDto;
+using GestaoPatrimonio.Exceptions;
 using GestaoPatrimonio.Interface;
 
 namespace GestaoPatrimonio.Aplication.Services
@@ -14,7 +16,52 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public List<ListarCidadeDto> Listar()
         {
-            return _repository.Listar().Select(c => new CriarCidadeDto);
+            return _repository.Listar().Select(c => new ListarCidadeDto { 
+                NomeCidade = c.NomeCidade,
+                Estado = c.Estado,
+            }).ToList();
+        }
+
+        public ListarCidadeDto ObterPorID(Guid id)
+        {
+            Cidade? cidade = _repository.ObterPorId(id);
+
+            if (cidade == null)
+                throw new DomainException("Cidade não encontrada");
+
+            return new ListarCidadeDto
+            {
+                NomeCidade = cidade.NomeCidade,
+                Estado = cidade.Estado,
+            };
+        }
+
+        public ListarCidadeDto ObterPorNome(string nome)
+        {
+            Cidade? cidade = _repository.ObterPorNome(nome);
+
+            if (cidade == null)
+                throw new DomainException("Cidade não encontrada");
+
+            return new ListarCidadeDto
+            {
+                NomeCidade = cidade.NomeCidade,
+                Estado = cidade.Estado,
+            };
+        }
+
+        public ListarCidadeDto ObterPorNomeEEstado(string nome, string estado)
+        {
+            Cidade? cidade = _repository.ObterPorNomeEEstado(nome, estado);
+
+            if (cidade == null)
+                throw new DomainException("Cidade não encontrada");
+
+            return new ListarCidadeDto
+            {
+                NomeCidade = cidade.NomeCidade,
+                Estado = cidade.Estado,
+            };
         }
     }
 }

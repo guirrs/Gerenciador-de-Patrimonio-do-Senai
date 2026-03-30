@@ -1,5 +1,5 @@
 ﻿using GestaoPatrimonio.Aplication.Services;
-using GestaoPatrimonio.DTOs.CidadeDto;
+using GestaoPatrimonio.DTOs.BairroDto;
 using GestaoPatrimonio.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,51 +8,55 @@ namespace GestaoPatrimonio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CidadeController : ControllerBase
+    public class BairroController : ControllerBase
     {
-        private readonly CidadeService _service;
+        private readonly BairroService _service;
 
-        public CidadeController(CidadeService service)
+        public BairroController(BairroService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<List<ListarCidadeDto>> Listar()
+        public ActionResult<List<ListarBairroDto>> Listar()
         {
             return Ok(_service.Listar());
         }
 
-        [HttpGet("id/{id}")]
-        public ActionResult<ListarCidadeDto> ObterPorId(Guid id)
+        [HttpGet("{id}")]
+        public ActionResult<ListarBairroDto> ObterPorId(Guid id)
         {
             try
             {
-                return Ok(_service.ObterPorID(id));
+                return Ok(_service.BuscarPorId(id));
             }
             catch(DomainException ex)
             {
-                return BadRequest(ex.Message);
+                return NotFound(ex.Message);
             }
         }
-        [HttpGet("nome/{nome}")]
-        public ActionResult<ListarCidadeDto> ObterPorId(string nome)
+
+        [HttpPost]
+        public ActionResult<CriarBairroDto> Adicionar(CriarBairroDto dto)
         {
             try
             {
-                return Ok(_service.ObterPorNome(nome));
+                _service.Adicionar(dto);
+                return Created();
             }
             catch (DomainException ex)
             {
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet("NomeEEstado/{nome}/{estado}")]
-        public ActionResult<ListarCidadeDto> ObterPorNomeEEstado(string nome, string estado)
+
+        [HttpPut]
+        public ActionResult<CriarBairroDto> Atualizar(CriarBairroDto dto)
         {
             try
             {
-                return Ok(_service.ObterPorNomeEEstado(nome, estado));
+                _service.Atualizar(dto);
+                return NoContent();
             }
             catch (DomainException ex)
             {
