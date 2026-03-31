@@ -2,15 +2,15 @@
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.DTOs.TipoUsuarioDto;
 using GestaoPatrimonio.Exceptions;
-using GestaoPatrimonio.Repositories;
+using GestaoPatrimonio.Interface;
 
 namespace GestaoPatrimonio.Aplication.Services
 {
     public class TipoUsuarioService
     {
-        private readonly TipoUsuarioRepository _repository;
+        private readonly ITipoUsuarioRepository _repository;
 
-        public TipoUsuarioService(TipoUsuarioRepository repository)
+        public TipoUsuarioService(ITipoUsuarioRepository repository)
         {
             _repository = repository;
         }
@@ -34,6 +34,11 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public void Adicionar(CriarTipoUsuariodto dto)
         {
+            TipoUsuario nomeE = _repository.ObterPorNome(dto.NomeTipo);
+
+            if (nomeE != null)
+                throw new DomainException("Tipo ja cadastrado");
+
             TipoUsuario tipoBanco = new TipoUsuario
             {
                 NomeTipo = dto.NomeTipo
@@ -42,16 +47,13 @@ namespace GestaoPatrimonio.Aplication.Services
             _repository.Adicionar(tipoBanco);
         }
 
-        public void Adicionar(CriarTipoUsuariodto dto, Guid id)
+        public void Atualizar(CriarTipoUsuariodto dto, Guid id)
         {
             TipoUsuario tipo = _repository.ObterPorId(id);
 
-            TipoUsuario tipoBanco = new TipoUsuario
-            {
-                NomeTipo = tipo.NomeTipo
-            };
+            tipo.NomeTipo = dto.NomeTipo;
 
-            _repository.Adicionar(tipoBanco);
+            _repository.Atualizar(tipo);
         }
     }
 }

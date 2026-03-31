@@ -1,5 +1,5 @@
 ﻿using GestaoPatrimonio.Aplication.Services;
-using GestaoPatrimonio.DTOs.BairroDto;
+using GestaoPatrimonio.DTOs.StatusTransferencia;
 using GestaoPatrimonio.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,36 +8,36 @@ namespace GestaoPatrimonio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BairroController : ControllerBase
+    public class StatusTransferenciaController : ControllerBase
     {
-        private readonly BairroService _service;
+        private readonly StatusTransferenciaService _service;
 
-        public BairroController(BairroService service)
+        public StatusTransferenciaController(StatusTransferenciaService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<List<ListarBairroDto>> Listar()
+        public ActionResult<List<ListarStatusTransferenciaDto>> Listar()
         {
             return Ok(_service.Listar());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ListarBairroDto> ObterPorId(Guid id)
+        public ActionResult<ListarStatusTransferenciaDto> ObterPorId(Guid id)
         {
             try
             {
-                return Ok(_service.BuscarPorId(id));
+                return Ok(_service.ObterPorId(id));
             }
-            catch(DomainException ex)
+            catch (DomainException ex)
             {
                 return NotFound(ex.Message);
             }
         }
 
         [HttpPost]
-        public ActionResult<CriarBairroDto> Adicionar(CriarBairroDto dto)
+        public ActionResult Adicionar(CriarStatusTransferenciaDto dto)
         {
             try
             {
@@ -50,8 +50,8 @@ namespace GestaoPatrimonio.Controllers
             }
         }
 
-        [HttpPut]
-        public ActionResult<CriarBairroDto> Atualizar(CriarBairroDto dto, Guid id)
+        [HttpPut("{id}")]
+        public ActionResult Atualizar(CriarStatusTransferenciaDto dto, Guid id)
         {
             try
             {

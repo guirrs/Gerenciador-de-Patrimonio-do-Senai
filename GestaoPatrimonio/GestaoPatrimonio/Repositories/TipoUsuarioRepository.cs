@@ -21,6 +21,10 @@ namespace GestaoPatrimonio.Repositories
         {
             return _context.TipoUsuario.Find(id);
         }
+        public TipoUsuario ObterPorNome(string nome)
+        {
+            return _context.TipoUsuario.FirstOrDefault(t => t.NomeTipo == nome);
+        }
 
         public void Adicionar(TipoUsuario tipoUsuario)
         {

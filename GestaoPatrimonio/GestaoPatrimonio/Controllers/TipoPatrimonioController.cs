@@ -1,5 +1,5 @@
 ﻿using GestaoPatrimonio.Aplication.Services;
-using GestaoPatrimonio.DTOs.BairroDto;
+using GestaoPatrimonio.DTOs.TipoPatromonio;
 using GestaoPatrimonio.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,41 +8,41 @@ namespace GestaoPatrimonio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BairroController : ControllerBase
+    public class TipoPatrimonioController : ControllerBase
     {
-        private readonly BairroService _service;
+        private readonly TipoPatrimonioService _service;
 
-        public BairroController(BairroService service)
+        public TipoPatrimonioController(TipoPatrimonioService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<List<ListarBairroDto>> Listar()
+        public ActionResult<List<ListarTipoPatrimonioDto>> Listar()
         {
             return Ok(_service.Listar());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ListarBairroDto> ObterPorId(Guid id)
+        public ActionResult<ListarTipoPatrimonioDto> ObterPorId(Guid id)
         {
             try
             {
-                return Ok(_service.BuscarPorId(id));
+                return Ok(_service.ObterPorId(id));
             }
-            catch(DomainException ex)
+            catch (DomainException ex)
             {
-                return NotFound(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
 
         [HttpPost]
-        public ActionResult<CriarBairroDto> Adicionar(CriarBairroDto dto)
+        public ActionResult Adicionar (CriarTipoPatrimonioDto dto)
         {
             try
             {
                 _service.Adicionar(dto);
-                return Created();
+                return Ok();
             }
             catch (DomainException ex)
             {
@@ -51,7 +51,7 @@ namespace GestaoPatrimonio.Controllers
         }
 
         [HttpPut]
-        public ActionResult<CriarBairroDto> Atualizar(CriarBairroDto dto, Guid id)
+        public ActionResult Atualizar(CriarTipoPatrimonioDto dto, Guid id)
         {
             try
             {

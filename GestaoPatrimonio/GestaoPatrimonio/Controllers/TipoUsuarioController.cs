@@ -37,6 +37,32 @@ namespace GestaoPatrimonio.Controllers
             }
         }
 
-        
+        [HttpPost]
+        public ActionResult Adicionar(CriarTipoUsuariodto dto)
+        {
+            try
+            {
+                _service.Adicionar(dto);
+                return Created();
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult Atualizar(CriarTipoUsuariodto dto, Guid id)
+        {
+            try
+            {
+                _service.Atualizar(dto, id);
+                return NoContent();
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

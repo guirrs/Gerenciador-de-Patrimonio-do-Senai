@@ -6,6 +6,7 @@ namespace GestaoPatrimonio.Interface
     {
         List<TipoUsuario> Listar();
         TipoUsuario ObterPorId(Guid id);
+        TipoUsuario ObterPorNome(string nome);
         void Adicionar(TipoUsuario tipoUsuario);
         void Atualizar(TipoUsuario tipoUsuario);
 

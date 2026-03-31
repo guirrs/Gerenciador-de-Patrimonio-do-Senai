@@ -54,19 +54,20 @@ namespace GestaoPatrimonio.Aplication.Services
         {
             Endereco enderecoBanco = _repository.ObterPorId(id);
 
-            if (!_repository.BairroExiste(enderecoBanco.BairroID))
+            if (enderecoBanco == null)
+                throw new DomainException("endereco não encontrado");
+
+            if (!_repository.BairroExiste(dto.BairroID))
                 throw new DomainException("Bairro não existe.");
 
-            Endereco endereco = new Endereco
-            {
-                BairroID = enderecoBanco.BairroID,
-                CEP = enderecoBanco.CEP,
-                Complemento = enderecoBanco.Complemento,
-                Logradouro = enderecoBanco.Logradouro,
-                Numero = enderecoBanco.Numero,
-            };
+         
+            enderecoBanco.Logradouro = dto.Logradouro;
+            enderecoBanco.BairroID = dto.BairroID;
+            enderecoBanco.Numero = dto.Numero;  
+            enderecoBanco.Complemento = dto.Complemento;
+            enderecoBanco.CEP = dto.CEP;
 
-            _repository.Adicionar(endereco);
+            _repository.Atualizar(enderecoBanco);
         }
     }
 }

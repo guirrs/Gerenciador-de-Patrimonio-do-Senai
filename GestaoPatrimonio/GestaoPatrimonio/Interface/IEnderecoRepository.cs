@@ -8,7 +8,7 @@ namespace GestaoPatrimonio.Interface
         Endereco ObterPorId(Guid id);
         void Adicionar(Endereco endereco);
         void Atualizar(Endereco endereco);
-        Endereco BuscarPorLougadouroENumero(string lougradoura, int? numero, Guid bairroId);
+        List<Endereco> BuscarPorLougadouroENumero(string lougradoura, int? numero, Guid bairroId);
         bool BairroExiste(Guid bairroId);
     }
 }
