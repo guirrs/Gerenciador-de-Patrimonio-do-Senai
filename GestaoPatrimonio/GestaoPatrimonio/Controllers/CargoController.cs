@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonio.Aplication.Services;
-using GestaoPatrimonio.DTOs.TipoPatromonio;
+using GestaoPatrimonio.DTOs.CargoDto;
 using GestaoPatrimonio.Exceptions;
+using GestaoPatrimonio.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,23 +9,23 @@ namespace GestaoPatrimonio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TipoPatrimonioController : ControllerBase
+    public class CargoController : ControllerBase
     {
-        private readonly TipoPatrimonioService _service;
+        private readonly CargoService _service;
 
-        public TipoPatrimonioController(TipoPatrimonioService service)
+        public CargoController(CargoService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<List<ListarTipoPatrimonioDto>> Listar()
+        public ActionResult Listar()
         {
             return Ok(_service.Listar());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ListarTipoPatrimonioDto> ObterPorId(Guid id)
+        public ActionResult ObterPorId(Guid id)
         {
             try
             {
@@ -32,17 +33,17 @@ namespace GestaoPatrimonio.Controllers
             }
             catch (DomainException ex)
             {
-                return BadRequest(ex.Message);
+                return NotFound(ex.Message);
             }
         }
 
         [HttpPost]
-        public ActionResult Adicionar (CriarTipoPatrimonioDto dto)
+        public ActionResult Adicionar(CriarCargoDto dto)
         {
             try
             {
                 _service.Adicionar(dto);
-                return Ok();
+                return Created();
             }
             catch (DomainException ex)
             {
@@ -51,14 +52,14 @@ namespace GestaoPatrimonio.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Atualizar(CriarTipoPatrimonioDto dto, Guid id)
+        public ActionResult Atualizar(CriarCargoDto dto, Guid id)
         {
             try
             {
                 _service.Atualizar(dto, id);
                 return NoContent();
             }
-            catch (DomainException ex)
+            catch(DomainException ex)
             {
                 return BadRequest(ex.Message);
             }

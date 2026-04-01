@@ -15,9 +15,7 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public List<ListarUsuarioDto> Listar()
         {
-            List<Usuario> usuarios = _repository.Listar();
-
-            List<ListarUsuarioDto> usuariosDto = usuarios.Select(usuario => new ListarUsuarioDto
+            return _repository.Listar().Select(usuario => new ListarUsuarioDto
             {
                 UsuarioID = usuario.UsuarioID,
                 NIF = usuario.NIF,
@@ -28,7 +26,7 @@ namespace GestaoPatrimonio.Aplication.Services
                 RG = usuario.RG,
                 EnderecoID = usuario.EnderecoID,
                 Ativo = usuario.Ativo,
-            });
+            }).ToList();
         }
     }
 }

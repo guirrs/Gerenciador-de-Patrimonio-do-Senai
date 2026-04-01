@@ -1,5 +1,5 @@
 ﻿using GestaoPatrimonio.Aplication.Services;
-using GestaoPatrimonio.DTOs.TipoPatromonio;
+using GestaoPatrimonio.DTOs.TipoAlteracao;
 using GestaoPatrimonio.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,23 +8,23 @@ namespace GestaoPatrimonio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TipoPatrimonioController : ControllerBase
+    public class TipoAlteracaoController : ControllerBase
     {
-        private readonly TipoPatrimonioService _service;
+        private readonly TipoAlteracaoService _service;
 
-        public TipoPatrimonioController(TipoPatrimonioService service)
+        public TipoAlteracaoController(TipoAlteracaoService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<List<ListarTipoPatrimonioDto>> Listar()
+        public ActionResult<List<ListarTipoAlteracao>> Listar()
         {
             return Ok(_service.Listar());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ListarTipoPatrimonioDto> ObterPorId(Guid id)
+        public ActionResult<ListarTipoAlteracao> ObterPorId(Guid id)
         {
             try
             {
@@ -32,26 +32,25 @@ namespace GestaoPatrimonio.Controllers
             }
             catch (DomainException ex)
             {
-                return BadRequest(ex.Message);
+                return NotFound(ex.Message);
             }
         }
 
         [HttpPost]
-        public ActionResult Adicionar (CriarTipoPatrimonioDto dto)
+        public ActionResult Adicionar(CriarTipoAlteracao dto)
         {
             try
             {
                 _service.Adicionar(dto);
-                return Ok();
+                return Created();
             }
             catch (DomainException ex)
             {
                 return BadRequest(ex.Message);
             }
         }
-
         [HttpPut("{id}")]
-        public ActionResult Atualizar(CriarTipoPatrimonioDto dto, Guid id)
+        public ActionResult Atualizar(CriarTipoAlteracao dto, Guid id)
         {
             try
             {

@@ -15,7 +15,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<StatusTransferencia> Listar()
         {
-            return _context.StatusTransferencia.ToList();
+            return _context.StatusTransferencia.OrderBy(s => s.NomeStatus).ToList();
         }
         public StatusTransferencia ObterPorId(Guid id)
         {

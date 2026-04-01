@@ -14,7 +14,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Usuario> Listar()
         {
-            return _context.Usuario.ToList();
+            return _context.Usuario.OrderBy(u => u.Nome).ToList();
         }
     }
 }

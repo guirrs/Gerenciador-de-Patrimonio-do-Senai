@@ -27,21 +27,37 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAreaRepository, AreaRepository>();
 builder.Services.AddScoped<AreaService>();
 
-// Localizacao
-builder.Services.AddScoped<ILocalizacaoRepository, LocalizacaoRepository>();
-builder.Services.AddScoped<LocalizacaoService>();
+// Bairro
+builder.Services.AddScoped<IBairroRepository, BairroRepository>();
+builder.Services.AddScoped<BairroService>();
+
+// Cargo
+builder.Services.AddScoped<ICargoRepository, CargoRepository>();
+builder.Services.AddScoped<CargoService>();
 
 // Cidade
 builder.Services.AddScoped<ICidadeRepository, CidadeRepository>();
 builder.Services.AddScoped<CidadeService>();
 
-// Bairro
-builder.Services.AddScoped<IBairroRepository, BairroRepository>();
-builder.Services.AddScoped<BairroService>();
-
 // Endereco
 builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 builder.Services.AddScoped<EnderecoService>();
+
+// Localizacao
+builder.Services.AddScoped<ILocalizacaoRepository, LocalizacaoRepository>();
+builder.Services.AddScoped<LocalizacaoService>();
+
+// StatusTransferencia
+builder.Services.AddScoped<IStatusTransferenciaRepository, StatusTransferenciaRepository>();
+builder.Services.AddScoped<StatusTransferenciaService>();
+
+// TipoAlteracao
+builder.Services.AddScoped<ITipoAlteracaoRepository, TipoAlteracaoRepository>();
+builder.Services.AddScoped<TipoAlteracaoService>();
+
+// TipoPatrimonio
+builder.Services.AddScoped<ITipoPatrimonioRepository, TipoPatrimonioRepository>();
+builder.Services.AddScoped<TipoPatrimonioService>();
 
 // TipoUsuario
 builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();

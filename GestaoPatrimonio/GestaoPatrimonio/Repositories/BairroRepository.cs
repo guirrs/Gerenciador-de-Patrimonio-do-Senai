@@ -16,7 +16,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Bairro> Listar()
         {
-            return _context.Bairro
+            return _context.Bairro.OrderBy(b => b.NomeBairro)
                 .ToList();
         }
         public Bairro BuscarPorId(Guid bairroID)

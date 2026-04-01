@@ -1,4 +1,5 @@
-﻿using GestaoPatrimonio.Aplication.Regras;
+﻿using GestaoPatrimonio.Aplication.Conversoes;
+using GestaoPatrimonio.Aplication.Regras;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.DTOs.Localizacao;
 using GestaoPatrimonio.Exceptions;
@@ -17,14 +18,7 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public List<ListarLocalizacaoDto> Listar()
         {
-            return _repository.Listar().Select(l => new ListarLocalizacaoDto
-            {
-                ID = l.LocalizacaoID,
-                NomeLocal = l.NomeLocal,
-                DescricaoSAP = l.DescricaoSAP,
-                LocalSAP = l.LocalSAP,
-                AreaID = l.AreaID,
-            }).ToList();
+            return _repository.Listar().Select(l => LocalizacaoParaDto.ConverterParaDto(l)).ToList();
         }
 
         public ListarLocalizacaoDto ObterPorID(Guid id)
@@ -36,14 +30,7 @@ namespace GestaoPatrimonio.Aplication.Services
                 throw new DomainException("Localização não encontrada");
             }
 
-            return new ListarLocalizacaoDto
-            {
-                ID = local.LocalizacaoID,
-                NomeLocal = local.NomeLocal,
-                DescricaoSAP = local.DescricaoSAP,
-                LocalSAP = local.LocalSAP,
-                AreaID = local.AreaID,
-            };
+            return LocalizacaoParaDto.ConverterParaDto(local);
         }
 
         public void Adicionar(CriarLocalizacaoDto dto)

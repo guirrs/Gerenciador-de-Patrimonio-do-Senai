@@ -42,7 +42,7 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public void Adicionar(CriarStatusTransferenciaDto dto)
         {
-            if (this.ObterPorNome(dto.NomeStatus) != null)
+            if (_repository.ObterPorNome(dto.NomeStatus) != null)
                 throw new DomainException("Nome ja cadastrado");
 
             StatusTransferencia status = new StatusTransferencia

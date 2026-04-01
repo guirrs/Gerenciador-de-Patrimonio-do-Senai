@@ -51,7 +51,7 @@ namespace GestaoPatrimonio.Aplication.Services
 
             tipo.NomeTipo = dto.NomeTipo;
 
-            _repository.Adicionar(tipo);
+            _repository.Atualizar(tipo);
         }
     }
 }

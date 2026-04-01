@@ -15,7 +15,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Endereco> Listar()
         {
-            return _context.Endereco.ToList();
+            return _context.Endereco.OrderBy(e => e.Logradouro).ToList();
         }
 
         public Endereco ObterPorId(Guid id)
@@ -31,16 +31,20 @@ namespace GestaoPatrimonio.Repositories
 
         public void Atualizar(Endereco endereco)
         {
-            Endereco nvEndereco = new Endereco
-            {
-                EnderecoID = endereco.EnderecoID,
-                BairroID = endereco.BairroID,
-                CEP = endereco.CEP,
-                Logradouro = endereco.Logradouro,
-                Complemento = endereco.Complemento,
-                Numero = endereco.Numero,
-            };
+            if (endereco == null)
+                return;
 
+            if (endereco.EnderecoID == null)
+                return;
+
+            Endereco enderecoBanco = _context.Endereco.Find(endereco.EnderecoID);
+
+            enderecoBanco.Logradouro = endereco.Logradouro;
+            enderecoBanco.CEP = endereco.CEP;
+            enderecoBanco.Numero = endereco.Numero;
+            enderecoBanco.BairroID = endereco.BairroID; 
+            enderecoBanco.Complemento = endereco.Complemento;
+            
             _context.SaveChanges();
         }
 
@@ -49,14 +53,17 @@ namespace GestaoPatrimonio.Repositories
             return _context.Bairro.Any(b => b.BairroID == id);
         }
 
-        public List<Endereco> BuscarPorLougadouroENumero(string lougadouro, int? numero, Guid bairroId)
+        public Endereco BuscarPorLougadouroENumero(string lougadouro, int? numero, Guid bairroId, Guid? enderecoId = null)
         {
-            if(numero.HasValue)
-            {
-                return _context.Endereco.Where(e => e.BairroID == bairroId && e.Numero == numero && e.Logradouro == lougadouro).ToList();
-            }
+            var consulta = _context.Endereco.AsQueryable();
 
-            return _context.Endereco.Where(e => e.BairroID == bairroId && e.Logradouro == lougadouro).ToList();
+            if (enderecoId.HasValue)
+                consulta = consulta.Where(e => e.EnderecoID == enderecoId);
+
+            return consulta.FirstOrDefault(e =>
+            e.Logradouro.ToLower() == lougadouro.ToLower()
+            && e.Numero == numero
+            && e.BairroID == bairroId);
         }
     }
 }

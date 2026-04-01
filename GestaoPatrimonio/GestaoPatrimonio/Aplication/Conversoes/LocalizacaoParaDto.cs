@@ -5,7 +5,7 @@ namespace GestaoPatrimonio.Aplication.Conversoes
 {
     public class LocalizacaoParaDto
     {
-        public ListarLocalizacaoDto ConverterParaDto(Localizacao l)
+        public static ListarLocalizacaoDto ConverterParaDto(Localizacao l)
         {
             return new ListarLocalizacaoDto
             {
@@ -16,7 +16,7 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 AreaID = l.AreaID,
             };
         }
-        public ListarLocalizacaoDto CriarDto(Localizacao l)
+        public static ListarLocalizacaoDto CriarDto(Localizacao l)
         {
             return new ListarLocalizacaoDto
             {
