@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonio.Contexts;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Repositories
 {
@@ -15,7 +16,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Cargo> Listar()
         {
-            return _context.Cargo.OrderBy(c => c.NomeCargo).ToList();
+            return _context.Cargo.AsNoTracking().OrderBy(c => c.NomeCargo).ToList();
         }
 
         public Cargo ObterPorId(Guid id)
@@ -25,7 +26,7 @@ namespace GestaoPatrimonio.Repositories
 
         public Cargo ObterPorNome(string nome)
         {
-            return _context.Cargo.FirstOrDefault(c => c.NomeCargo == nome);
+            return _context.Cargo.AsNoTracking().FirstOrDefault(c => c.NomeCargo == nome);
         }
 
         public void Adicionar(Cargo cargo)

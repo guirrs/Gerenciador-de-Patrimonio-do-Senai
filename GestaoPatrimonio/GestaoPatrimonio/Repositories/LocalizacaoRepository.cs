@@ -2,6 +2,7 @@
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Repositories
 {
@@ -16,7 +17,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Localizacao> Listar()
         {
-            return _context.Localizacao.OrderBy(l => l.NomeLocal).ToList();
+            return _context.Localizacao.AsNoTracking().OrderBy(l => l.NomeLocal).ToList();
         }
 
         public Localizacao ObterPorID(Guid id)

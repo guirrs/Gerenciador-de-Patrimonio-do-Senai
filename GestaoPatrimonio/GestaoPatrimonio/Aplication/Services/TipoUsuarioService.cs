@@ -39,21 +39,14 @@ namespace GestaoPatrimonio.Aplication.Services
             if (nomeE != null)
                 throw new DomainException("Tipo ja cadastrado");
 
-            TipoUsuario tipoBanco = new TipoUsuario
-            {
-                NomeTipo = dto.NomeTipo
-            };
-
-            _repository.Adicionar(tipoBanco);
+            _repository.Adicionar(TipoUsuarioParaDto.DtoParaDomain(dto, null));
         }
 
         public void Atualizar(CriarTipoUsuariodto dto, Guid id)
         {
-            TipoUsuario tipo = _repository.ObterPorId(id);
-
-            tipo.NomeTipo = dto.NomeTipo;
-
-            _repository.Atualizar(tipo);
+            if (_repository.ObterPorId(id) == null)
+                throw new DomainException("ID não encontrado.");
+            _repository.Atualizar(TipoUsuarioParaDto.DtoParaDomain(dto, id));
         }
     }
 }

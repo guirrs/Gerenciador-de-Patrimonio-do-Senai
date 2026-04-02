@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonio.Contexts;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Repositories
 {
@@ -15,7 +16,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<StatusTransferencia> Listar()
         {
-            return _context.StatusTransferencia.OrderBy(s => s.NomeStatus).ToList();
+            return _context.StatusTransferencia.AsNoTracking().OrderBy(s => s.NomeStatus).ToList();
         }
         public StatusTransferencia ObterPorId(Guid id)
         {
@@ -24,7 +25,7 @@ namespace GestaoPatrimonio.Repositories
 
         public StatusTransferencia ObterPorNome(string nome)
         {
-            return _context.StatusTransferencia.FirstOrDefault(s => s.NomeStatus == nome);
+            return _context.StatusTransferencia.AsNoTracking().FirstOrDefault(s => s.NomeStatus == nome);
         }
 
         public void Adicionar(StatusTransferencia statusTransferencia)

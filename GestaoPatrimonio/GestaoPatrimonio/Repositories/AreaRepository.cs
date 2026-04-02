@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonio.Contexts;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Repositories
 {
@@ -14,7 +15,7 @@ namespace GestaoPatrimonio.Repositories
         }
         public List<Area> Listar()
         {
-            return _context.Area.OrderBy(area => area.NomeArea).ToList();
+            return _context.Area.OrderBy(area => area.NomeArea).AsNoTracking().ToList();
         }
 
         public Area BuscarPorId(Guid id)
@@ -24,7 +25,7 @@ namespace GestaoPatrimonio.Repositories
 
         public Area BuscarPorNome(string nome)
         {
-            return _context.Area.FirstOrDefault(n => n.NomeArea.ToLower() == nome.ToLower());
+            return _context.Area.AsNoTracking().FirstOrDefault(n => n.NomeArea.ToLower() == nome.ToLower());
         }
 
         public void Adicionar(Area area)

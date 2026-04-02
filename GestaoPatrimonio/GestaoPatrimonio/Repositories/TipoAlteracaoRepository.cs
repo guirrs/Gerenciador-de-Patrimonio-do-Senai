@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonio.Contexts;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Repositories
 {
@@ -15,7 +16,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<TipoAlteracao> Listar()
         {
-            return _context.TipoAlteracao.OrderBy(t => t.NomeTipo).ToList();
+            return _context.TipoAlteracao.AsNoTracking().OrderBy(t => t.NomeTipo).ToList();
         }
 
         public TipoAlteracao ObterPorId(Guid id)
@@ -25,7 +26,7 @@ namespace GestaoPatrimonio.Repositories
 
         public TipoAlteracao ObterPorNome(string nome)
         {
-            return _context.TipoAlteracao.FirstOrDefault(t => t.NomeTipo == nome);
+            return _context.TipoAlteracao.AsNoTracking().FirstOrDefault(t => t.NomeTipo == nome);
         }
 
         public void Adicionar(TipoAlteracao alteracao)

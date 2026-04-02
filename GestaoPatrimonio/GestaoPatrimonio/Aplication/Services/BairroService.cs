@@ -1,9 +1,10 @@
-﻿using GestaoPatrimonio.Domains;
+﻿using GestaoPatrimonio.Aplication.Conversoes;
+using GestaoPatrimonio.Aplication.Regras;
+using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.DTOs.BairroDto;
+using GestaoPatrimonio.Exceptions;
 using GestaoPatrimonio.Interface;
 using GestaoPatrimonio.Repositories;
-using GestaoPatrimonio.Aplication.Conversoes;
-using GestaoPatrimonio.Exceptions;
 
 namespace GestaoPatrimonio.Aplication.Services
 {
@@ -35,6 +36,8 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public void Adicionar(CriarBairroDto dto)
         {
+            Validar.ValidarNome(dto.NomeBairro);
+
             Bairro nomeBairro = _repository.BuscarPorNome(dto.NomeBairro, dto.CidadeID);
             bool cidade = _repository.CidadeExiste(dto.CidadeID);
 
@@ -54,18 +57,15 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public void Atualizar(CriarBairroDto dto, Guid id)
         {
+            Validar.ValidarNome(dto.NomeBairro);
+
             Bairro nomeBairro = _repository.BuscarPorNome(dto.NomeBairro, dto.CidadeID);
             Bairro bairroBanco = _repository.BuscarPorId(id);
 
-            if (nomeBairro == null)
+            if (nomeBairro != null)
                 throw new DomainException("Bairro ja cadastrado");
 
-            Bairro bairro = new Bairro
-            {
-                CidadeID = bairroBanco.CidadeID,
-                NomeBairro = bairroBanco.NomeBairro,
-            };
-            _repository.Atualizar(bairro);
+            _repository.Atualizar(BairroParaDto.DtoParaDomain(dto,id));
         }
     }
 }

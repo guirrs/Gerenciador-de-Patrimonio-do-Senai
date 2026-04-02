@@ -34,12 +34,7 @@ namespace GestaoPatrimonio.Aplication.Services
             if (_repository.ObterPorNome(dto.NomeTipo) != null)
                 throw new DomainException("Tipo patrimonio ja cadastrado");
 
-            TipoPatrimonio tipo = new TipoPatrimonio
-            {
-                NomeTipo = dto.NomeTipo
-            };
-
-            _repository.Adicionar(tipo);
+            _repository.Adicionar(TipoPatrimonioParaDto.DtoParaDomain(dto, null));
         }
 
         public void Atualizar(CriarTipoPatrimonioDto dto, Guid id)
@@ -47,11 +42,10 @@ namespace GestaoPatrimonio.Aplication.Services
             if (_repository.ObterPorNome(dto.NomeTipo) != null)
                 throw new DomainException("Tipo patrimonio ja cadastrado");
 
-            TipoPatrimonio tipo = _repository.ObterPorId(id);
+            if (_repository.ObterPorId(id) == null)
+                throw new DomainException("ID não encontrado");
 
-            tipo.NomeTipo = dto.NomeTipo;
-
-            _repository.Atualizar(tipo);
+            _repository.Atualizar(TipoPatrimonioParaDto.DtoParaDomain(dto, id));
         }
     }
 }

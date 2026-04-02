@@ -3,6 +3,7 @@ using GestaoPatrimonio.DTOs.AreaDto;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.Exceptions;
 using GestaoPatrimonio.Aplication.Regras;
+using GestaoPatrimonio.Aplication.Conversoes;
 
 namespace GestaoPatrimonio.Aplication.Services
 {
@@ -17,12 +18,7 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public List<ListarAreaDto> Listar()
         {
-            return _repository.Listar().Select(area =>
-            new ListarAreaDto
-            {
-                AreaID = area.AreaID,
-                NomeArea = area.NomeArea,
-            }).ToList();
+            return _repository.Listar().Select(area => AreaParaDto.ConverterParaDto(area)).ToList();
         }
 
         public ListarAreaDto BuscarPorId(Guid id)
@@ -34,12 +30,7 @@ namespace GestaoPatrimonio.Aplication.Services
                 throw new DomainException("Area não encontrada");
             }
 
-            ListarAreaDto areaDto = new ListarAreaDto {
-                AreaID  = area.AreaID,
-                NomeArea = area.NomeArea,
-            };
-
-            return areaDto;
+            return AreaParaDto.ConverterParaDto(area);
         }
 
         public void Adicionar(CriarAreaDto areaDto)
@@ -53,12 +44,7 @@ namespace GestaoPatrimonio.Aplication.Services
                 throw new DomainException("Ja existe uma area cadastrada com esse nome.");
             }
 
-            Area area = new Area
-            {
-                NomeArea = areaDto.NomeArea,
-            };
-
-            _repository.Adicionar(area);
+            _repository.Adicionar(AreaParaDto.DtoParaDomain(areaDto, null));
         }
 
         public void Atualizar(Guid id, CriarAreaDto dto)
@@ -79,9 +65,7 @@ namespace GestaoPatrimonio.Aplication.Services
                 throw new DomainException("Area existente");
             }
 
-            areaBanco.NomeArea = dto.NomeArea;
-
-            _repository.Atualizar(areaBanco);
+            _repository.Atualizar(AreaParaDto.DtoParaDomain(dto, id));
         }
     }
 }

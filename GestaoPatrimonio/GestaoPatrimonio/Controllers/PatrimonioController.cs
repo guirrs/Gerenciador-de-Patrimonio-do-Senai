@@ -1,5 +1,6 @@
 ﻿using GestaoPatrimonio.Aplication.Services;
-using GestaoPatrimonio.DTOs.BairroDto;
+using GestaoPatrimonio.DTOs.CargoDto;
+using GestaoPatrimonio.DTOs.PatrimonioDto;
 using GestaoPatrimonio.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,36 +9,36 @@ namespace GestaoPatrimonio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BairroController : ControllerBase
+    public class PatrimonioController : ControllerBase
     {
-        private readonly BairroService _service;
+        private readonly PatrimonioService _service;
 
-        public BairroController(BairroService service)
+        public PatrimonioController(PatrimonioService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public ActionResult<List<ListarBairroDto>> Listar()
+        public ActionResult Listar()
         {
             return Ok(_service.Listar());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<ListarBairroDto> ObterPorId(Guid id)
+        public ActionResult ObterPorId(Guid id)
         {
             try
             {
-                return Ok(_service.BuscarPorId(id));
+                return Ok(_service.ObterPorId(id));
             }
-            catch(DomainException ex)
+            catch (DomainException ex)
             {
                 return NotFound(ex.Message);
             }
         }
 
         [HttpPost]
-        public ActionResult<CriarBairroDto> Adicionar(CriarBairroDto dto)
+        public ActionResult Adicionar(CriarPatrimonioDto dto)
         {
             try
             {
@@ -51,7 +52,7 @@ namespace GestaoPatrimonio.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<CriarBairroDto> Atualizar(CriarBairroDto dto, Guid id)
+        public ActionResult Atualizar(CriarPatrimonioDto dto, Guid id)
         {
             try
             {
@@ -61,6 +62,20 @@ namespace GestaoPatrimonio.Controllers
             catch (DomainException ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult Remover(Guid id)
+        {
+            try
+            {
+                _service.Remover(id);
+                return NoContent();
+            }
+            catch(DomainException ex)
+            {
+                return NotFound(ex.Message);
             }
         }
     }

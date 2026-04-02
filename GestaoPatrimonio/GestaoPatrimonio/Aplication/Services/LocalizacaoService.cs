@@ -49,15 +49,7 @@ namespace GestaoPatrimonio.Aplication.Services
                 throw new DomainException("Area informada não existe.");
             }
 
-            Localizacao localizacao = new Localizacao
-            {
-                NomeLocal = dto.NomeLocal,
-                DescricaoSAP = dto.Descricaco,
-                LocalSAP = dto.LocalSAP,
-                AreaID = dto.AreaID,
-            };
-
-            _repository.Adicionar(localizacao);
+            _repository.Adicionar(LocalizacaoParaDto.DtoPataDomain(dto, null));
         }
 
         public void Atualizar(Guid id, CriarLocalizacaoDto dto)
@@ -82,14 +74,7 @@ namespace GestaoPatrimonio.Aplication.Services
             {
                 throw new DomainException("Area informada não existe.");
             }
-
-            localizacaoBanco.LocalizacaoID = id;
-            localizacaoBanco.NomeLocal = dto.NomeLocal;
-            localizacaoBanco.AreaID = dto.AreaID;
-            localizacaoBanco.DescricaoSAP = dto.Descricaco;
-            localizacaoBanco.LocalSAP = dto.LocalSAP;
-
-            _repository.Atualizar(localizacaoBanco);
+            _repository.Atualizar((LocalizacaoParaDto.DtoPataDomain(dto, id)));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonio.Contexts;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Repositories
 {
@@ -15,7 +16,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Endereco> Listar()
         {
-            return _context.Endereco.OrderBy(e => e.Logradouro).ToList();
+            return _context.Endereco.AsNoTracking().OrderBy(e => e.Logradouro).ToList();
         }
 
         public Endereco ObterPorId(Guid id)
@@ -55,12 +56,12 @@ namespace GestaoPatrimonio.Repositories
 
         public Endereco BuscarPorLougadouroENumero(string lougadouro, int? numero, Guid bairroId, Guid? enderecoId = null)
         {
-            var consulta = _context.Endereco.AsQueryable();
+            var consulta = _context.Endereco.AsNoTracking().AsQueryable();
 
             if (enderecoId.HasValue)
-                consulta = consulta.Where(e => e.EnderecoID == enderecoId);
+                consulta = consulta.AsNoTracking().Where(e => e.EnderecoID == enderecoId);
 
-            return consulta.FirstOrDefault(e =>
+            return consulta.AsNoTracking().FirstOrDefault(e =>
             e.Logradouro.ToLower() == lougadouro.ToLower()
             && e.Numero == numero
             && e.BairroID == bairroId);

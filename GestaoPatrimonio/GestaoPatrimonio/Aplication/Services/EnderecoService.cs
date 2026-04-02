@@ -1,4 +1,5 @@
 ﻿using GestaoPatrimonio.Aplication.Conversoes;
+using GestaoPatrimonio.Aplication.Regras;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.DTOs.EnderecoDto;
 using GestaoPatrimonio.Exceptions;
@@ -35,23 +36,18 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public void Adicionar(CriarEnderecoDto dto)
         {
+            Validar.ValidarNome(dto.Logradouro);
+
             if (!_repository.BairroExiste(dto.BairroID))
                 throw new DomainException("Bairro não existe.");
 
-            Endereco endereco = new Endereco
-            {
-                BairroID = dto.BairroID,
-                CEP = dto.CEP,
-                Complemento = dto.Complemento,
-                Logradouro = dto.Logradouro,
-                Numero = dto.Numero,
-            };
-
-            _repository.Adicionar(endereco);
+            _repository.Adicionar(EnderecoParaDto.DtoParaDomain(dto, null));
         }
 
         public void Atualizar(CriarEnderecoDto dto,Guid id)
         {
+            Validar.ValidarNome(dto.Logradouro);
+
             Endereco enderecoBanco = _repository.ObterPorId(id);
 
             if (enderecoBanco == null)
@@ -60,14 +56,7 @@ namespace GestaoPatrimonio.Aplication.Services
             if (!_repository.BairroExiste(dto.BairroID))
                 throw new DomainException("Bairro não existe.");
 
-         
-            enderecoBanco.Logradouro = dto.Logradouro;
-            enderecoBanco.BairroID = dto.BairroID;
-            enderecoBanco.Numero = dto.Numero;  
-            enderecoBanco.Complemento = dto.Complemento;
-            enderecoBanco.CEP = dto.CEP;
-
-            _repository.Atualizar(enderecoBanco);
+            _repository.Atualizar(EnderecoParaDto.DtoParaDomain(dto, id));
         }
     }
 }

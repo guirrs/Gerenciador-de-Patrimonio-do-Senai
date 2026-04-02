@@ -13,5 +13,14 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 NomeCargo = c.NomeCargo,
             };
         }
+
+        public static Cargo DomainParaDto(CriarCargoDto dto, Guid? id)
+        {
+            return new Cargo
+            {
+                CargoID = id ?? Guid.Empty,
+                NomeCargo = dto.NomeCargo
+            };
+        }
     }
 }

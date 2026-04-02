@@ -1,4 +1,5 @@
 ﻿using GestaoPatrimonio.Aplication.Conversoes;
+using GestaoPatrimonio.Aplication.Regras;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.DTOs.CargoDto;
 using GestaoPatrimonio.Exceptions;
@@ -34,17 +35,21 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public void Adicionar(CriarCargoDto dto)
         {
+            Validar.ValidarNome(dto.NomeCargo);
+
             Cargo cargoNome = _repository.ObterPorNome(dto.NomeCargo);
 
             if (cargoNome != null)
                 throw new DomainException("Cargo ja cadastrado.");
 
-            _repository.Adicionar(new Cargo { NomeCargo = dto.NomeCargo});
+            _repository.Adicionar(CargoParaDto.DomainParaDto(dto, null));
 
         }
 
         public void Atualizar(CriarCargoDto dto, Guid id)
         {
+            Validar.ValidarNome(dto.NomeCargo);
+
             Cargo cargo = _repository.ObterPorId(id);
             Cargo cargoNome = _repository.ObterPorNome(dto.NomeCargo);
 
@@ -54,9 +59,7 @@ namespace GestaoPatrimonio.Aplication.Services
             if (cargoNome != null)
                 throw new DomainException("Cargo ja cadastrado.");
 
-            cargo.NomeCargo = dto.NomeCargo;
-
-            _repository.Atualizar(cargo);
+            _repository.Atualizar(CargoParaDto.DomainParaDto(dto, id));
         }
     }
 }

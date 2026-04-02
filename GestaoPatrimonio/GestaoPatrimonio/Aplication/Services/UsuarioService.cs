@@ -1,4 +1,5 @@
-﻿using GestaoPatrimonio.Domains;
+﻿using GestaoPatrimonio.Aplication.Conversoes;
+using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.DTOs.UsuarioDto;
 using GestaoPatrimonio.Interface;
 
@@ -15,18 +16,7 @@ namespace GestaoPatrimonio.Aplication.Services
 
         public List<ListarUsuarioDto> Listar()
         {
-            return _repository.Listar().Select(usuario => new ListarUsuarioDto
-            {
-                UsuarioID = usuario.UsuarioID,
-                NIF = usuario.NIF,
-                CarteiraTrabalho = usuario.CarteiraTrabalho,
-                CPF = usuario.CPF,
-                Email = usuario.Email,
-                Nome = usuario.Nome,
-                RG = usuario.RG,
-                EnderecoID = usuario.EnderecoID,
-                Ativo = usuario.Ativo,
-            }).ToList();
+            return _repository.Listar().Select(usuario => UsuarioParaDto.ConverterParaDto(usuario)).ToList();
         }
     }
 }

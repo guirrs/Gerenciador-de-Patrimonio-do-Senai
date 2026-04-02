@@ -13,5 +13,13 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 TipoAlteracaoID = t.TipoAlteracaoID,
             };
         }
+        public static TipoAlteracao DtoParaDomain(CriarTipoAlteracao dto, Guid? id)
+        {
+            return new TipoAlteracao
+            {
+                TipoAlteracaoID = id ?? Guid.Empty,
+                NomeTipo = dto.NomeTipo,
+            };
+        }
     }
 }

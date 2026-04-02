@@ -13,11 +13,13 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 NomeTipo = tipo.NomeTipo
             };
         }
-        public static CriarTipoPatrimonioDto TipoPatrimonioCriarParaDto(TipoPatrimonio tipo)
+
+        public static TipoPatrimonio DtoParaDomain(CriarTipoPatrimonioDto dto, Guid? id)
         {
-            return new CriarTipoPatrimonioDto
+            return new TipoPatrimonio
             {
-                NomeTipo = tipo.NomeTipo
+                TipoPatrimonioID = id ?? Guid.Empty,
+                NomeTipo = dto.NomeTipo
             };
         }
     }

@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonio.Contexts;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Repositories
 {
@@ -15,7 +16,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Cidade> Listar()
         {
-            return _context.Cidade.OrderBy(c => c.NomeCidade).ToList();
+            return _context.Cidade.AsNoTracking().OrderBy(c => c.NomeCidade).ToList();
         }
 
         public Cidade ObterPorId(Guid Id)
@@ -25,12 +26,12 @@ namespace GestaoPatrimonio.Repositories
 
         public Cidade ObterPorNome(string nome)
         {
-            return _context.Cidade.FirstOrDefault(c => c.NomeCidade == nome);
+            return _context.Cidade.AsNoTracking().FirstOrDefault(c => c.NomeCidade == nome);
         }
 
         public Cidade ObterPorNomeEEstado(string nomeCidade, string NomeEstado)
         {
-            return _context.Cidade.FirstOrDefault(c => c.Estado == NomeEstado && c.NomeCidade == nomeCidade);
+            return _context.Cidade.AsNoTracking().FirstOrDefault(c => c.Estado == NomeEstado && c.NomeCidade == nomeCidade);
         }
     }
 }

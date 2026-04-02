@@ -18,10 +18,11 @@ namespace GestaoPatrimonio.Aplication.Conversoes
             };
         }
 
-        public static CriarEnderecoDto EnderecoCriarParaDto(Endereco dto)
+        public static Endereco DtoParaDomain(CriarEnderecoDto dto, Guid? id)
         {
-            return new CriarEnderecoDto
+            return new Endereco
             {
+                EnderecoID = id ?? Guid.Empty,
                 Logradouro = dto.Logradouro,
                 Numero = dto.Numero,
                 BairroID = dto.BairroID,

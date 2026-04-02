@@ -16,15 +16,16 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 AreaID = l.AreaID,
             };
         }
-        public static ListarLocalizacaoDto CriarDto(Localizacao l)
+
+        public static Localizacao DtoPataDomain(CriarLocalizacaoDto dto, Guid? id)
         {
-            return new ListarLocalizacaoDto
+            return new Localizacao
             {
-                ID = l.LocalizacaoID,
-                NomeLocal = l.NomeLocal,
-                DescricaoSAP = l.DescricaoSAP,
-                LocalSAP = l.LocalSAP,
-                AreaID = l.AreaID,
+                LocalizacaoID = id ?? Guid.Empty,
+                NomeLocal = dto.NomeLocal,
+                DescricaoSAP = dto.DescricacaoSAP,
+                LocalSAP = dto.LocalSAP,
+                AreaID = dto.AreaID,
             };
         }
     }

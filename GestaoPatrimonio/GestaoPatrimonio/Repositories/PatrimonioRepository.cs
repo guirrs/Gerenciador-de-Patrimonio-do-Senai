@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonio.Contexts;
 using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Repositories
 {
@@ -15,7 +16,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Patrimonio> Listar()
         {
-            return _context.Patrimonio.ToList();
+            return _context.Patrimonio.AsNoTracking().ToList();
         }
 
         public Patrimonio ObterPorId(Guid id)
@@ -25,7 +26,7 @@ namespace GestaoPatrimonio.Repositories
 
         public Patrimonio ObterPorDenominacao(string nome)
         {
-            return _context.Patrimonio.FirstOrDefault(p => p.Denominacao == nome);
+            return _context.Patrimonio.AsNoTracking().FirstOrDefault(p => p.Denominacao == nome);
         }
 
         public void Adicionar(Patrimonio patrimonio)

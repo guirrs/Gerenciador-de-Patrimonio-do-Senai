@@ -45,12 +45,7 @@ namespace GestaoPatrimonio.Aplication.Services
             if (_repository.ObterPorNome(dto.NomeStatus) != null)
                 throw new DomainException("Nome ja cadastrado");
 
-            StatusTransferencia status = new StatusTransferencia
-            {
-                NomeStatus = dto.NomeStatus
-            };
-
-            _repository.Adicionar(status);
+            _repository.Adicionar(StatusTransferenciaParaDto.DtoParaDomain(dto, null));
         }
 
         public void Atualizar(CriarStatusTransferenciaDto dto, Guid id)
@@ -58,11 +53,10 @@ namespace GestaoPatrimonio.Aplication.Services
             if (_repository.ObterPorNome(dto.NomeStatus) != null)
                 throw new DomainException("Nome ja cadastrado");
 
-            StatusTransferencia statusBanco = _repository.ObterPorId(id);
+            if (_repository.ObterPorId(id) == null)
+                throw new DomainException("ID não encontrado.");
 
-            statusBanco.NomeStatus = dto.NomeStatus;
-
-            _repository.Atualizar(statusBanco);
+            _repository.Atualizar(StatusTransferenciaParaDto.DtoParaDomain(dto, id));
         }
     }
 }

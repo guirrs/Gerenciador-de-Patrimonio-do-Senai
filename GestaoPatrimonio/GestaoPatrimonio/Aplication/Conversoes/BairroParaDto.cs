@@ -14,5 +14,15 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 CidadeID = b.CidadeID,
             };
         }
+
+        public static Bairro DtoParaDomain(CriarBairroDto dto, Guid? id)
+        {
+            return new Bairro
+            {
+                BairroID = id ?? Guid.Empty,
+                CidadeID = dto.CidadeID,
+                NomeBairro = dto.NomeBairro,
+            };
+        }
     }
 }

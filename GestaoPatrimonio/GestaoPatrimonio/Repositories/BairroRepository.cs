@@ -16,7 +16,7 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Bairro> Listar()
         {
-            return _context.Bairro.OrderBy(b => b.NomeBairro)
+            return _context.Bairro.OrderBy(b => b.NomeBairro).AsNoTracking()
                 .ToList();
         }
         public Bairro BuscarPorId(Guid bairroID)
@@ -40,11 +40,11 @@ namespace GestaoPatrimonio.Repositories
         }
         public Bairro BuscarPorNome(string nome, Guid cidadeID)
         {
-            return _context.Bairro.FirstOrDefault(e => e.NomeBairro == nome && e.CidadeID == cidadeID);
+            return _context.Bairro.AsNoTracking().FirstOrDefault(e => e.NomeBairro == nome && e.CidadeID == cidadeID);
         }
         public bool CidadeExiste(Guid cidadeID)
         {
-            return _context.Cidade.Any(c => c.CidadeID == cidadeID);
+            return _context.Cidade.AsNoTracking().Any(c => c.CidadeID == cidadeID);
         }
     }
 }

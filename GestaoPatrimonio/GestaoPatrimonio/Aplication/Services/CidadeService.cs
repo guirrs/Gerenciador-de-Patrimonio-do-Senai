@@ -1,4 +1,5 @@
-﻿using GestaoPatrimonio.Domains;
+﻿using GestaoPatrimonio.Aplication.Conversoes;
+using GestaoPatrimonio.Domains;
 using GestaoPatrimonio.DTOs.CidadeDto;
 using GestaoPatrimonio.Exceptions;
 using GestaoPatrimonio.Interface;
@@ -29,11 +30,7 @@ namespace GestaoPatrimonio.Aplication.Services
             if (cidade == null)
                 throw new DomainException("Cidade não encontrada");
 
-            return new ListarCidadeDto
-            {
-                NomeCidade = cidade.NomeCidade,
-                Estado = cidade.Estado,
-            };
+            return CidadeParaDto.ConverterParaDto(cidade);
         }
 
         public ListarCidadeDto ObterPorNome(string nome)
@@ -43,11 +40,7 @@ namespace GestaoPatrimonio.Aplication.Services
             if (cidade == null)
                 throw new DomainException("Cidade não encontrada");
 
-            return new ListarCidadeDto
-            {
-                NomeCidade = cidade.NomeCidade,
-                Estado = cidade.Estado,
-            };
+            return CidadeParaDto.ConverterParaDto(cidade);
         }
 
         public ListarCidadeDto ObterPorNomeEEstado(string nome, string estado)
@@ -57,11 +50,7 @@ namespace GestaoPatrimonio.Aplication.Services
             if (cidade == null)
                 throw new DomainException("Cidade não encontrada");
 
-            return new ListarCidadeDto
-            {
-                NomeCidade = cidade.NomeCidade,
-                Estado = cidade.Estado,
-            };
+            return CidadeParaDto.ConverterParaDto(cidade);  
         }
     }
 }

@@ -30,25 +30,23 @@ namespace GestaoPatrimonio.Aplication.Services
             return TipoAlteracaoParaDto.TipoAlteracaoListarParaDto(tipo);
         }
 
-        public void Adicionar(CriarTipoAlteracao tipo)
+        public void Adicionar(CriarTipoAlteracao dto)
         {
-            if (_repository.ObterPorNome(tipo.NomeTipo) == null)
+            if (_repository.ObterPorNome(dto.NomeTipo) == null)
                 throw new CannotUnloadAppDomainException("Nome ja cadastrado.");
 
-            _repository.Adicionar(new TipoAlteracao
-            {
-                NomeTipo = tipo.NomeTipo,
-            });
+            _repository.Adicionar(TipoAlteracaoParaDto.DtoParaDomain(dto, null));
         }
 
-        public void Atualizar(CriarTipoAlteracao tipo, Guid id)
+        public void Atualizar(CriarTipoAlteracao dto, Guid id)
         {
-            if (_repository.ObterPorNome(tipo.NomeTipo) == null)
+            if (_repository.ObterPorNome(dto.NomeTipo) == null)
                 throw new CannotUnloadAppDomainException("Nome ja cadastrado.");
 
-            TipoAlteracao tipoBanco = _repository.ObterPorId(id);
+            if (_repository.ObterPorId(id) == null)
+                throw new DomainException("ID não encontrado.");
 
-            _repository.Atualizar(tipoBanco);
+            _repository.Atualizar(TipoAlteracaoParaDto.DtoParaDomain(dto, id));
         }
     }
 }

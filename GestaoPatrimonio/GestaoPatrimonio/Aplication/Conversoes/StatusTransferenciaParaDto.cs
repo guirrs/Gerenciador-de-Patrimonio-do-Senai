@@ -14,11 +14,12 @@ namespace GestaoPatrimonio.Aplication.Conversoes
             };
         }
 
-        public static CriarStatusTransferenciaDto StatusCriarParaDto(StatusTransferencia status)
+        public static StatusTransferencia DtoParaDomain(CriarStatusTransferenciaDto dto, Guid? id)
         {
-            return new CriarStatusTransferenciaDto
+            return new StatusTransferencia
             {
-                NomeStatus = status.NomeStatus
+                StatusTransferenciaID = id ?? Guid.Empty,
+                NomeStatus = dto.NomeStatus,
             };
         }
     }
