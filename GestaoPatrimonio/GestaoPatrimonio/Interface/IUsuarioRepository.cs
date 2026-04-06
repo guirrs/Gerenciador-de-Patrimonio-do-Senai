@@ -6,9 +6,16 @@ namespace GestaoPatrimonio.Interface
     {
         List<Usuario> Listar();
         Usuario ObterPorId(Guid id);
-        Usuario ObterPorNome(string nome);
+        Usuario BuscarDuplicado(string nif, string cpf, string email, Guid? usuarioId = null);
+        bool EnderecoExiste(Guid enderecoId);
+        bool CargoExiste(Guid cargoId);
+        bool TipoUsuarioExiste(Guid tipoUsuarioId);
         void Adicionar(Usuario usuario);
         void Atualizar(Usuario usuario);
-        void Remover(Usuario usuario);
+        void AtualizarStatus(Guid id, bool status);
+        Usuario ObterPorNIFComTipoUsuario(string nif);
+        void AtualizarSenha(Guid id, string senha);
+        void AtualizarPrimeiroAcesso(Guid id, bool status);
+        //void Remover(Usuario usuario);
     }
 }

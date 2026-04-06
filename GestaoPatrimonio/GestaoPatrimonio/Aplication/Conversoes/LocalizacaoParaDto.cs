@@ -14,6 +14,7 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 DescricaoSAP = l.DescricaoSAP,
                 LocalSAP = l.LocalSAP,
                 AreaID = l.AreaID,
+                NomeArea = l.Area.NomeArea,
             };
         }
 

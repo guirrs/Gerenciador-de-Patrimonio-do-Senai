@@ -7,5 +7,6 @@
         public int? LocalSAP { get; set; }
         public string DescricaoSAP { get; set; }
         public Guid AreaID { get; set; }
+        public string NomeArea { get; set; }
     }
 }

@@ -13,8 +13,12 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 Logradouro = dto.Logradouro,
                 Numero = dto.Numero,
                 BairroID = dto.BairroID,
+                NomeBairro = dto.Bairro.NomeBairro,
+                CidadeId = dto.Bairro.CidadeID,
+                NomeCidade = dto.Bairro.Cidade.NomeCidade,
                 CEP = dto.CEP,
                 Complemento = dto.Complemento,
+
             };
         }
 

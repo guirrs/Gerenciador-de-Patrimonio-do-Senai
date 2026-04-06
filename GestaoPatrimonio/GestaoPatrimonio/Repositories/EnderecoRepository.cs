@@ -16,7 +16,10 @@ namespace GestaoPatrimonio.Repositories
 
         public List<Endereco> Listar()
         {
-            return _context.Endereco.AsNoTracking().OrderBy(e => e.Logradouro).ToList();
+            return _context.Endereco.AsNoTracking().OrderBy(e => e.Logradouro)
+                .Include(e => e.Bairro)
+                .Include(e => e.Bairro.Cidade)
+                .ToList();
         }
 
         public Endereco ObterPorId(Guid id)

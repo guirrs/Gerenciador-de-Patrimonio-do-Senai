@@ -12,6 +12,8 @@
         public bool? Ativo { get; set; }
         public Guid EnderecoID { get; set; }
         public Guid CargoID { get; set; }
+        public string NomeCargo {  get; set; }
         public Guid TipoUsuarioID { get; set; }
+        public string NomeTipoUsuario { get; set; }
     }
 }
