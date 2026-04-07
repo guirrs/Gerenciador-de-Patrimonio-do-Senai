@@ -15,31 +15,39 @@ namespace GestaoPatrimonio.Aplication.Regras
             }
         }
 
-        public static void ValidarLougadouro(string nome)
+        public static void ValidarLougadouro(string lougadouro)
         {
-            if (string.IsNullOrEmpty(nome))
+            if (string.IsNullOrEmpty(lougadouro))
             {
                 throw new DomainException("Lougadouro é obrigatório");
             }
         }
-        public static void ValidarNIF(string nome)
+        public static void ValidarNIF(string nif)
         {
-            if (string.IsNullOrEmpty(nome))
+            if (string.IsNullOrEmpty(nif))
             {
                 throw new DomainException("NIF é obrigatório");
             }
         }
-        public static void ValidarCPF(string nome)
+        public static void ValidarCPF(string cpf)
         {
-            if (string.IsNullOrEmpty(nome))
+            if (string.IsNullOrEmpty(cpf))
             {
                 throw new DomainException("CPF é obrigatório");
             }
         }
 
-        public static void ValidarEmail(string nome)
+        public static void ValidarEmail(string email)
         {
-            if (string.IsNullOrEmpty(nome))
+            if (string.IsNullOrEmpty(email))
+            {
+                throw new DomainException("Email é obrigatório");
+            }
+        }
+
+        public static void ValidarSenha(string senha)
+        {
+            if (string.IsNullOrEmpty(senha))
             {
                 throw new DomainException("Email é obrigatório");
             }

@@ -1,6 +1,7 @@
 ﻿using GestaoPatrimonio.Aplication.Services;
 using GestaoPatrimonio.DTOs.UsuarioDto;
 using GestaoPatrimonio.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,12 +18,14 @@ namespace GestaoPatrimonio.Controllers
             _service = service;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<List<ListarUsuarioDto>> Listar()
         {
             return Ok(_service.Listar());
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<ListarUsuarioDto> ObterPorId(Guid id)
         {
@@ -36,6 +39,7 @@ namespace GestaoPatrimonio.Controllers
             }
         }
 
+        [Authorize(Roles = "Coordenador")]
         [HttpPost]
         public ActionResult Adicionar(CriarUsuarioDto dto)
         {
@@ -50,6 +54,7 @@ namespace GestaoPatrimonio.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut]
         public ActionResult Atualizar(CriarUsuarioDto dto, Guid id)
         {
@@ -65,7 +70,8 @@ namespace GestaoPatrimonio.Controllers
         }
 
         // Atualiza algo especifico, voce usa HttpPatch
-        [HttpPatch("status/{id}")]
+        [Authorize]
+        [HttpPatch("{id}/status")]
         public ActionResult AtualizarStatus(Guid id, AtualizarStatusUsuarioDto dto)
         {
             try
