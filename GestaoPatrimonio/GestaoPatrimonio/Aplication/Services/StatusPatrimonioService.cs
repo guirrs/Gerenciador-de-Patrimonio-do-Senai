@@ -1,16 +1,16 @@
 ﻿using GestaoPatrimonio.DTOs.StatusPatrimonio;
-using GestaoPatrimonio.Repositories;
 using GestaoPatrimonio.Aplication.Conversoes;
 using GestaoPatrimonio.Exceptions;
 using GestaoPatrimonio.Domains;
+using GestaoPatrimonio.Interface;
 
 namespace GestaoPatrimonio.Aplication.Services
 {
     public class StatusPatrimonioService
     {
-        private readonly StatusPatrimonioRepository _repository;
+        private readonly IStatusPatrimonioRepository _repository;
 
-        public StatusPatrimonioService(StatusPatrimonioRepository repository)
+        public StatusPatrimonioService(IStatusPatrimonioRepository repository)
         {
             _repository = repository;
         }

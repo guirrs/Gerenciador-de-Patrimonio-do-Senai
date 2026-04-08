@@ -21,7 +21,6 @@ builder.Services.AddDbContext<GestaoPatrimoniosContext>(options => options.UseSq
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 // Areas
 builder.Services.AddScoped<IAreaRepository, AreaRepository>();
@@ -55,13 +54,28 @@ builder.Services.AddScoped<StatusTransferenciaService>();
 builder.Services.AddScoped<ITipoAlteracaoRepository, TipoAlteracaoRepository>();
 builder.Services.AddScoped<TipoAlteracaoService>();
 
-// TipoPatrimonio
-builder.Services.AddScoped<ITipoPatrimonioRepository, TipoPatrimonioRepository>();
-builder.Services.AddScoped<TipoPatrimonioService>();
+// Usuario
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<UsuarioService>();
 
-// TipoUsuario
-builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
-builder.Services.AddScoped<TipoUsuarioService>();
+// Patrimonio
+builder.Services.AddScoped<IPatrimonioRepository, PatrimonioRepository>();
+builder.Services.AddScoped<PatrimonioService>();
+
+// TipoAlteracao
+builder.Services.AddScoped<TipoAlteracaoService>();
+
+// StatusTransferencia
+builder.Services.AddScoped<IStatusTransferenciaRepository, StatusTransferenciaRepository>();
+builder.Services.AddScoped<StatusTransferenciaService>();
+
+// StatusPatrimonio
+builder.Services.AddScoped<IStatusPatrimonioRepository, StatusPatrimonioRepository>();
+builder.Services.AddScoped<StatusPatrimonioService>();
+
+// SolicitacaoTransferencia
+builder.Services.AddScoped<ISolicitacaoTransferenciaRepository, SolicitacaoTransferenciaRepository>();
+builder.Services.AddScoped<SolicitacaoTransferenciaService>();
 
 var app = builder.Build();
 

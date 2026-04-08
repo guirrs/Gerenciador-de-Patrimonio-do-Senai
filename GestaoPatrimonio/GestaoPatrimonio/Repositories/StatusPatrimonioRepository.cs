@@ -1,10 +1,11 @@
 ﻿using GestaoPatrimonio.Contexts;
 using GestaoPatrimonio.Domains;
+using GestaoPatrimonio.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Repositories
 {
-    public class StatusPatrimonioRepository
+    public class StatusPatrimonioRepository : IStatusPatrimonioRepository
     {
         private readonly GestaoPatrimoniosContext _context;
 

@@ -40,12 +40,9 @@ public partial class GestaoPatrimoniosContext : DbContext
 
     public virtual DbSet<TipoAlteracao> TipoAlteracao { get; set; }
 
-    public virtual DbSet<TipoPatrimonio> TipoPatrimonio { get; set; }
-
     public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
 
     public virtual DbSet<Usuario> Usuario { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Area>(entity =>
@@ -216,11 +213,6 @@ public partial class GestaoPatrimoniosContext : DbContext
                 .HasForeignKey(d => d.StatusPatrimonioID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Patrimonio_StatusPatrimonio");
-
-            entity.HasOne(d => d.TipoPatrimonio).WithMany(p => p.Patrimonio)
-                .HasForeignKey(d => d.TipoPatrimonioID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Patrimonio_TipoPatrimonio");
         });
 
         modelBuilder.Entity<SolicitacaoTransferencia>(entity =>
@@ -290,18 +282,6 @@ public partial class GestaoPatrimoniosContext : DbContext
             entity.Property(e => e.TipoAlteracaoID).HasDefaultValueSql("(newid())");
             entity.Property(e => e.NomeTipo)
                 .HasMaxLength(50)
-                .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<TipoPatrimonio>(entity =>
-        {
-            entity.HasKey(e => e.TipoPatrimonioID).HasName("PK__TipoPatr__4DC9FF99E6EF0118");
-
-            entity.HasIndex(e => e.NomeTipo, "UQ__TipoPatr__7859A10A64C9F154").IsUnique();
-
-            entity.Property(e => e.TipoPatrimonioID).HasDefaultValueSql("(newid())");
-            entity.Property(e => e.NomeTipo)
-                .HasMaxLength(100)
                 .IsUnicode(false);
         });
 
