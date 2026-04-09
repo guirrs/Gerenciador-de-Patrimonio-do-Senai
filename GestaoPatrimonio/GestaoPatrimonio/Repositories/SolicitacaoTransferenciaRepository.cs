@@ -62,5 +62,54 @@ namespace GestaoPatrimonio.Repositories
         {
             return _context.Patrimonio.Find(id);
         }
+
+        public StatusPatrimonio BuscarStatusPatrimonioPorNome(string nome)
+        {
+            return _context.StatusPatrimonio.FirstOrDefault(status => status.NomeStatus.ToLower() == nome.ToLower());
+        }
+
+        public TipoAlteracao BuscarTipoAlteracaoPorNome(string nome)
+        {
+            return _context.TipoAlteracao.FirstOrDefault(tipo => tipo.NomeTipo.ToLower() == nome.ToLower());
+        }
+
+        public void Atualizar(SolicitacaoTransferencia solicitacao)
+        {
+            if (solicitacao == null)
+                return;
+
+            SolicitacaoTransferencia solicitacaoBanco = _context.SolicitacaoTransferencia.Find(solicitacao.TransferenciaID);
+
+            if (solicitacaoBanco == null)
+                return;
+
+            solicitacaoBanco.DataResposta = solicitacao.DataResposta;
+            solicitacaoBanco.StatusTransferenciaID = solicitacao.StatusTransferenciaID;
+            solicitacaoBanco.UsuarioIDAprovacao = solicitacao.UsuarioIDAprovacao;
+
+            _context.SaveChanges(); 
+        }
+
+        public void AtualizarPatrimonio(Patrimonio patrimonio)
+        {
+            if(patrimonio == null)
+                return;
+
+            Patrimonio patriomonioBanco = _context.Patrimonio.Find(patrimonio.PatrimonioID);
+
+            if(patriomonioBanco == null)
+                return;
+
+            patriomonioBanco.LocalizacaoID = patrimonio.LocalizacaoID;
+            patriomonioBanco.StatusPatrimonioID = patrimonio.StatusPatrimonioID;
+
+            _context.SaveChanges();
+        }
+
+        public void AdicionarLog(LogPatrimonio log)
+        {
+            _context.LogPatrimonio.Add(log);    
+            _context.SaveChanges();
+        }
     }
 }

@@ -26,13 +26,6 @@ CREATE TABLE Cargo(
 );
 GO
 
--- TIPO PATRIMONIO
-CREATE TABLE TipoPatrimonio(
-	TipoPatrimonioID	UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
-	NomeTipo			VARCHAR(100) UNIQUE NOT NULL
-);
-GO
-
 -- STATUS PATRIMONIO
 -- Inativo, Ativo, Transferido, Assis. Tecnica
 CREATE TABLE StatusPatrimonio(
@@ -139,14 +132,10 @@ CREATE TABLE Patrimonio (
 	Valor				DECIMAL(10,2),
 	Imagem				VARCHAR(MAX),
 	LocalizacaoID		UNIQUEIDENTIFIER NOT NULL,
-	TipoPatrimonioID	UNIQUEIDENTIFIER NOT NULL,
 	StatusPatrimonioID	UNIQUEIDENTIFIER NOT NULL,
 
 	CONSTRAINT FK_Patrimonio_Localizacao
 		FOREIGN KEY (LocalizacaoID) REFERENCES Localizacao(LocalizacaoID),
-
-	CONSTRAINT FK_Patrimonio_TipoPatrimonio
-		FOREIGN KEY (TipoPatrimonioID) REFERENCES TipoPatrimonio(TipoPatrimonioID),
 
 	CONSTRAINT FK_Patrimonio_StatusPatrimonio
 		FOREIGN KEY (StatusPatrimonioID) REFERENCES StatusPatrimonio(StatusPatrimonioID)
@@ -333,3 +322,6 @@ GO
 INSERT INTO Bairro (NomeBairro, CidadeID) VALUES
 ('Centro', (SELECT CidadeID FROM Cidade WHERE NomeCidade = 'São Caetano do Sul'))
 GO
+
+ALTER TABLE Patrimonio DROP CONSTRAINT Fk_Patrimonio_TipoPatrimonio;
+DROP TABLE TipoPatrimonio

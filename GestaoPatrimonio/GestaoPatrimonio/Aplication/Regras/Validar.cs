@@ -52,5 +52,13 @@ namespace GestaoPatrimonio.Aplication.Regras
                 throw new DomainException("Email é obrigatório");
             }
         }
+
+        public static void ValidarJustificativa(string justificativa)
+        {
+            if (string.IsNullOrEmpty(justificativa))
+            {
+                throw new DomainException("Email é obrigatório");
+            }
+        }
     }
 }

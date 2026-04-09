@@ -1,4 +1,5 @@
 ﻿using GestaoPatrimonio.Domains;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPatrimonio.Interface
 {
@@ -12,5 +13,12 @@ namespace GestaoPatrimonio.Interface
         void Adicionar(SolicitacaoTransferencia solicitacao);
         bool LocalizacaoExiste(Guid localizacaoId);
         Patrimonio BuscarPatrimonioPorId(Guid patrimonioId);
+        bool SolicitacaoExiste(Guid localizacaoId);
+        StatusPatrimonio BuscarStatusPatrimonioPorNome(string nome);
+        TipoAlteracao BuscarTipoAlteracaoPorNome(string nome);
+
+        void Atualizar(SolicitacaoTransferencia solicitacao);
+        void AtualizarPatrimonio(Patrimonio patrimonio);
+        void AdicionarLog(LogPatrimonio log);
     }
 }
