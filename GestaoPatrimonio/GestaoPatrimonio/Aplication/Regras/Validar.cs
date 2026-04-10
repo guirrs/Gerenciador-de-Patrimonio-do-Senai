@@ -60,5 +60,13 @@ namespace GestaoPatrimonio.Aplication.Regras
                 throw new DomainException("Email é obrigatório");
             }
         }
+
+        public static void ValidarNumeroPatrimonio(string numeroPatrimonio)
+        {
+            if (string.IsNullOrEmpty(numeroPatrimonio))
+            {
+                throw new DomainException("Email é obrigatório");
+            }
+        }
     }
 }

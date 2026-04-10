@@ -8,6 +8,5 @@
         public string? Imagem { get; set; }
         public Guid LocalizacaoID { get; set; }
         public Guid TipoPatrimonioID { get; set; }
-        public Guid StatusPatrimonioID { get; set; }
     }
 }

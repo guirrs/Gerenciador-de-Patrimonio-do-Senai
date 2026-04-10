@@ -14,7 +14,6 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 LocalizacaoID = dto.LocalizacaoID,
                 NumeroPatrimonio = dto.NumeroPatrimonio,
                 PatrimonioID = dto.PatrimonioID,
-                StatusPatrimonioID = dto.PatrimonioID,
                 TipoPatrimonioID = dto.TipoPatrimonioID,
                 Valor = dto.Valor,
             };
@@ -27,7 +26,6 @@ namespace GestaoPatrimonio.Aplication.Conversoes
                 Denominacao = dto.Denominacao,
                 Imagem = dto.Imagem,
                 LocalizacaoID = dto.LocalizacaoID,
-                StatusPatrimonioID = dto.StatusPatrimonioID,
                 NumeroPatrimonio = dto.NumeroPatrimonio,
                 TipoPatrimonioID = dto.TipoPatrimonioID,
                 Valor = dto.Valor,

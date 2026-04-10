@@ -62,7 +62,7 @@ namespace GestaoPatrimonio.Aplication.Services
                 bool usuarioReponsavel = _repository.UsuarioResponsavelDaLocalizacao(id, patrimonio.LocalizacaoID);
 
                 if (!usuarioReponsavel)
-                    throw new DomainException("O responsável só pode soliciatar tranferência de patrimônio do ambiente ao qual está vinculado.").
+                    throw new DomainException("O responsável só pode soliciatar tranferência de patrimônio do ambiente ao qual está vinculado.");
             }
             StatusTransferencia statusPendente = _repository.BuscarStatusTransferenciaPorNome("Pendente de aprovação");
 
