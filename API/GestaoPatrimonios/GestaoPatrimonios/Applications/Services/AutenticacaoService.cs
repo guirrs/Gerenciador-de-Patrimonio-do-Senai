@@ -34,7 +34,7 @@ namespace GestaoPatrimonios.Applications.Services
 
             // Só informa que o usuário está inativo depois de a senha estar correta,
             // para não permitir descobrir contas existentes sem conhecer a senha.
-            if (!usuario.Ativo)
+            if (usuario.Ativo == false)
                 throw new DomainException("Usuário inativo.");
 
             return new TokenDto
