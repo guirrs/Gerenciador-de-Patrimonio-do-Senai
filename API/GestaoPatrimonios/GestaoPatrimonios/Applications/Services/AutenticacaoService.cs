@@ -1,4 +1,5 @@
-﻿using GestaoPatrimonios.Applications.Autenticacao;
+using System.Security.Cryptography;
+using GestaoPatrimonios.Applications.Autenticacao;
 using GestaoPatrimonios.Applications.Regras;
 using GestaoPatrimonios.Domains;
 using GestaoPatrimonios.DTOs.AutenticacaoDto;
@@ -9,6 +10,8 @@ namespace GestaoPatrimonios.Applications.Services
 {
     public class AutenticacaoService
     {
+        private const string MensagemCredenciaisInvalidas = "NIF ou senha inválidos.";
+
         private readonly IUsuarioRepository _repository;
         private readonly GeradorTokenJwt _tokenJwt;
 
@@ -18,41 +21,28 @@ namespace GestaoPatrimonios.Applications.Services
             _tokenJwt = tokenJwt;
         }
 
-        private static bool VerificarSenha(string senhaDigitada, byte[] senhaHashBanco)
-        {
-            var hashDigitado = CriptografiaUsuario.CriptografarSenha(senhaDigitada);
-
-            return hashDigitado.SequenceEqual(senhaHashBanco);
-        }
-
         public TokenDto Login(LoginDto loginDto)
         {
-            Usuario usuario = _repository.ObterPorNIFComTipoUsuario(loginDto.NIF);
+            Usuario? usuario = _repository.ObterPorNIFComTipoUsuario(loginDto.NIF);
 
-            if(usuario == null)
-            {
-                throw new DomainException("NIF ou senha inválidos.");
-            }
+            // Sempre calcula o hash, mesmo quando o usuário não existe: o tempo de
+            // resposta fica parecido e não revela quais NIFs estão cadastrados.
+            bool senhaValida = VerificarSenha(loginDto.Senha, usuario?.Senha);
 
-            if(usuario.Ativo == false)
-            {
+            if (usuario == null || !senhaValida)
+                throw new DomainException(MensagemCredenciaisInvalidas);
+
+            // Só informa que o usuário está inativo depois de a senha estar correta,
+            // para não permitir descobrir contas existentes sem conhecer a senha.
+            if (!usuario.Ativo)
                 throw new DomainException("Usuário inativo.");
-            }
 
-            if(!VerificarSenha(loginDto.Senha, usuario.Senha)) {
-                throw new DomainException("NIF ou senha inválidos.");
-            }
-
-            string token = _tokenJwt.GerarToken(usuario);
-
-            TokenDto novoToken = new TokenDto
+            return new TokenDto
             {
-                Token = token,
+                Token = _tokenJwt.GerarToken(usuario),
                 PrimeiroAcesso = usuario.PrimeiroAcesso,
                 TipoUsuario = usuario.TipoUsuario.NomeTipo
             };
-
-            return novoToken;
         }
 
         public void TrocarPrimeiraSenha(Guid usuarioId, TrocarPrimeiraSenhaDto dto)
@@ -60,28 +50,31 @@ namespace GestaoPatrimonios.Applications.Services
             Validar.ValidarSenha(dto.SenhaAtual);
             Validar.ValidarSenha(dto.NovaSenha);
 
-            Usuario usuario = _repository.BuscarPorId(usuarioId);
+            Usuario usuario = _repository.BuscarPorId(usuarioId)
+                ?? throw new DomainException("Usuário não encontrado.");
 
-            if (usuario == null)
-            {
-                throw new DomainException("Usuário não encontrado");
-            }
-
-            if(!VerificarSenha(dto.SenhaAtual, usuario.Senha))
-            {
+            if (!VerificarSenha(dto.SenhaAtual, usuario.Senha))
                 throw new DomainException("Senha atual inválida.");
-            }
 
-            if(dto.SenhaAtual == dto.NovaSenha)
-            {
+            if (dto.SenhaAtual == dto.NovaSenha)
                 throw new DomainException("A nova senha deve ser diferente da senha atual.");
-            }
 
             usuario.Senha = CriptografiaUsuario.CriptografarSenha(dto.NovaSenha);
             usuario.PrimeiroAcesso = false;
 
             _repository.AtualizarSenha(usuario);
             _repository.AtualizarPrimeiroAcesso(usuario);
+        }
+
+        private static bool VerificarSenha(string senhaDigitada, byte[]? senhaHashBanco)
+        {
+            byte[] hashDigitado = CriptografiaUsuario.CriptografarSenha(senhaDigitada);
+
+            if (senhaHashBanco == null)
+                return false;
+
+            // Comparação em tempo constante (SequenceEqual sai no primeiro byte diferente)
+            return CryptographicOperations.FixedTimeEquals(hashDigitado, senhaHashBanco);
         }
     }
 }
